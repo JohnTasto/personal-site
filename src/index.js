@@ -1,0 +1,3 @@
+// Set up your application entry point here...
+
+require('./styles/index.scss')
