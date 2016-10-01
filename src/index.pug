@@ -2,7 +2,25 @@ extends template.pug
 
 block vars
   - var resume = htmlWebpackPlugin.options.resume
-  - var title = 'Home'
 
 block content
-  p Hello world!
+  header
+    div.main
+      h1= resume.header.name
+      h2= resume.header.title
+    div.sub
+      span
+        i.fa.fa-map-marker &nbsp;
+        span= resume.header.location
+      span
+        i.fa.fa-phone &nbsp;
+        span= resume.header.phone
+      span
+        i.fa.fa-envelope &nbsp;
+        span= resume.header.email
+      span
+        i.fa.fa-linkedin &nbsp;
+        span= resume.header.linkedin
+      span
+        i.fa.fa-github &nbsp;
+        span= resume.header.github

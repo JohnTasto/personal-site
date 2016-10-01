@@ -1,0 +1,18 @@
+.resume {
+  background-color: #777;
+
+  body {
+    width: 80%;
+    margin: 1em auto;
+    padding: 2em;
+    background-color: white;
+    box-shadow: .25em .25em 2em rgba(0, 0, 0, .5);
+  }
+
+  .main,
+  .sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}

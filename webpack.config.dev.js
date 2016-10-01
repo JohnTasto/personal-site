@@ -3,6 +3,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import autoprefixer from 'autoprefixer'
 import path from 'path'
 
+import resumeData from './src/resumeData'
+
 
 export default {
   resolve: {
@@ -37,7 +39,7 @@ export default {
         collapseWhitespace: true,
       },
       inject: true,
-      resume: 'Hello resume',
+      resume: resumeData,
     }),
   ],
   module: {
