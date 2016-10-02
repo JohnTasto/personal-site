@@ -1,3 +1,5 @@
+$primary: #39B;
+
 .resume {
   background-color: #777;
 
@@ -9,10 +11,34 @@
     box-shadow: .25em .25em 2em rgba(0, 0, 0, .5);
   }
 
-  .main,
-  .sub {
+  .head,
+  .body {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+  }
+
+  header .head {
+    border-bottom: .25em solid $primary;
+  }
+
+  section {
+    margin: 1em 0;
+  }
+
+  h1, h2, h3 {
+    color: $primary;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.4em;
   }
 }
