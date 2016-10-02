@@ -1,14 +1,23 @@
 extends template.pug
 
 block vars
-  - var resume = htmlWebpackPlugin.options.resume
+  - let resume = htmlWebpackPlugin.options.resume
+
+mixin sectionHeading(text)
+  div.head
+    h2= text
+
+mixin bullets(...items)
+  ul(id=id)
+    each item in items
+      li ■ #{item}
 
 block content
   header
-    div.main
+    div.head
       h1= resume.header.name
-      h2= resume.header.title
-    div.sub
+      h3= resume.header.title
+    div.body
       span
         i.fa.fa-map-marker &nbsp;
         span= resume.header.location
@@ -24,3 +33,21 @@ block content
       span
         i.fa.fa-github &nbsp;
         span= resume.header.github
+  section
+    +sectionHeading(resume.summary.label)
+    div.body
+      +bullets(...resume.summary.bullets)
+
+
+
+
+//- mixin list(id, ...items)
+//-   ul(id=id)
+//-     each item in items
+//-       li= item
+//-
+//- mixin link(href, name)
+//-   //- attributes == {class: "btn"}
+//-   a(class!=attributes.class href=href)= name
+//-
+//- +link('/foo', 'foo')(class="btn")
