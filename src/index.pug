@@ -3,12 +3,17 @@ extends template.pug
 block vars
   - let resume = htmlWebpackPlugin.options.resume
 
+mixin headerContactInfo(icon, text)
+  span
+    i(class=`fa fa-${icon}`) &nbsp;
+    span= text
+
 mixin sectionHeading(text)
   div.head
     h2= text
 
 mixin bullets(...items)
-  ul(id=id)
+  ul
     each item in items
       li ■ #{item}
 
@@ -18,34 +23,23 @@ block content
       h1= resume.header.name
       h3= resume.header.title
     div.body
-      span
-        i.fa.fa-map-marker &nbsp;
-        span= resume.header.location
-      span
-        i.fa.fa-phone &nbsp;
-        span= resume.header.phone
-      span
-        i.fa.fa-envelope &nbsp;
-        span= resume.header.email
-      span
-        i.fa.fa-linkedin &nbsp;
-        span= resume.header.linkedin
-      span
-        i.fa.fa-github &nbsp;
-        span= resume.header.github
+      +headerContactInfo("map-marker", resume.header.location)
+      +headerContactInfo("phone"     , resume.header.phone)
+      +headerContactInfo("envelope"  , resume.header.email)
+      +headerContactInfo("linkedin"  , resume.header.linkedin)
+      +headerContactInfo("github"    , resume.header.github)
   section
     +sectionHeading(resume.summary.label)
     div.body
       +bullets(...resume.summary.bullets)
+  section
+    +sectionHeading(resume.skills.label)
+    div.body
 
 
 
 
-//- mixin list(id, ...items)
-//-   ul(id=id)
-//-     each item in items
-//-       li= item
-//-
+
 //- mixin link(href, name)
 //-   //- attributes == {class: "btn"}
 //-   a(class!=attributes.class href=href)= name
